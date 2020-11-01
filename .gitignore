@@ -1,0 +1,5 @@
+# direnvの設定ファイル
+aws/terraform直下にterraform.tfvarsを準備
+内容に下記を記載(クレデンシャルを含むのでgitからは除外)
+aws_access_key = "AKIAXRDDATLXZUKBTVAW"
+aws_secret_key = "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"
