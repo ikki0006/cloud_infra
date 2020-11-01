@@ -5,7 +5,7 @@ resource "aws_key_pair" "key_pair" {
 
 resource "aws_instance" "reverse-proxy" {
     ami = var.cent-id
-    instance_type = "t2.micro"
+    instance_type = "m5.large"
     key_name = "${var.env}-ssh-key"
     vpc_security_group_ids = [
       "${aws_security_group.default-security-group.id}"

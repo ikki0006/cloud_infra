@@ -1,5 +1,5 @@
 variable "env" {}
 variable "vpc_cidr" {}
 variable "cent-id" {
-  default = "ami-0c54e9b4dd47f7208"
+  default = "ami-089a156ea4f52a0a3"
 }
