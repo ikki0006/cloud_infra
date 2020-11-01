@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 module "sta" {
-  source = "../common"
+  source = "../"
   env = var.env
   vpc_cidr = var.vpc_cidr
 }
