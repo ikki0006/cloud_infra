@@ -1,5 +1,5 @@
 variable "env" {}
-variable "vpc_cidr" {}
+variable "vpc-cidr" {}
 variable "public-cidr01" {}
 variable "public-cidr02" {}
 variable "cent-id" {

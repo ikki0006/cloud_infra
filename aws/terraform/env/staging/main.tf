@@ -5,6 +5,7 @@ terraform {
     bucket = "harada-terraform-bucket"
     key    = "terraform.tfvars"
     region = "ap-northeast-1"
+    prefix = var.env
   }
 
 }
@@ -15,7 +16,9 @@ provider "aws" {
 }
 
 module "sta" {
-  source = "../"
+  source = "../../"
   env = var.env
-  vpc_cidr = var.vpc_cidr
+  vpc-cidr = var.vpc-cidr
+  public-cidr01 = var.public-cidr01
+  public-cidr02 = var.public-cidr02
 }
