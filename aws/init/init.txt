@@ -1,6 +1,7 @@
 ### バケットの作成
-aws s3 mb s3://material-bucket --region ap-southeast-1
+aws s3 mb s3://harada-material-bucket --region ap-southeast-1
 ### バージョニングの設定
-aws s3api put-bucket-versioning --bucket material-bucket --versioning-configuration Status=Enabled
+aws s3api put-bucket-versioning --bucket harada-material-bucket --versioning-configuration Status=Enabled
 ### バージョニングの設定ができていることを確認します
-aws s3api get-bucket-versioning --bucket material-bucket
+aws s3api get-bucket-versioning --bucket harada-material-bucket
+
