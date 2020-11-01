@@ -20,3 +20,11 @@ resource "aws_instance" "reverse-proxy" {
         Name = "${var.env}-proxy01"
     }
 }
+
+resource "aws_eip" "proxy-eip" {
+  instance = aws_instance.reverse-proxy.id
+  vpc = true
+  tags = {
+        Name = "${var.env}-proxy-eip"
+  }
+}
