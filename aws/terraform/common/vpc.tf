@@ -1,7 +1,8 @@
 # Create a VPC
 resource "aws_vpc" "my-vpc"{
   cidr_block = var.vpc_cidr
-  tags {
-      Name = "myVPC"
-    }
+
+  tags = {
+      Name = "${var.env}-vpc"
+  }
 }
