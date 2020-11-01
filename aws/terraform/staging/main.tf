@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 module "dev" {
-  source              = "../common"
-  env                 = var.env
-  vpc_cidr            = var.vpc_cidr
+  source = "../common"
+  env = var.env
+  vpc_cidr = var.vpc_cidr
 }
