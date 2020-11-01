@@ -2,7 +2,6 @@
 #aws上はtagsのNameの名前が優先させる。
 resource "aws_vpc" "main-vpc"{
   cidr_block = var.vpc_cidr
-
   tags = {
       Name = "${var.env}-vpc"
   }
@@ -10,12 +9,19 @@ resource "aws_vpc" "main-vpc"{
 
 resource "aws_internet_gateway" "main-gw" {
     vpc_id = aws_vpc.main-vpc.id
+    tags = {
+      Name = "${var.env}-gw"
+    }
+    
 }
 
 resource "aws_subnet" "public" {
     vpc_id = aws_vpc.main-vpc.id
     cidr_block = "10.0.1.0/24"
     availability_zone = "ap-northeast-1a"
+    tags = {
+      Name = "${var.env}-gw"
+    }
 }
 
 resource "aws_route_table" "public-route" {
@@ -23,6 +29,9 @@ resource "aws_route_table" "public-route" {
     route {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_gateway.main-gw.id
+    }
+    tags = {
+      Name = "${var.env}-route"
     }
 }
 
@@ -41,5 +50,8 @@ resource "aws_security_group" "default-group" {
         to_port = 0
         protocol = "-1"
         cidr_blocks = ["0.0.0.0/0"]
+    }
+    tags = {
+      Name = "${var.env}-security-group"
     }
 }
