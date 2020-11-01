@@ -14,7 +14,7 @@ provider "aws" {
     region = "ap-northeast-1"
 }
 
-module "dev" {
+module "sta" {
   source = "../common"
   env = var.env
   vpc_cidr = var.vpc_cidr
