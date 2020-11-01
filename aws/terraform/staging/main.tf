@@ -1,13 +1,21 @@
+terraform {
+  required_version = "~> 0.13"
+
+    backend "s3" {
+    bucket = "harada-terraform-bucket"
+    key    = "terraform.tfvars"
+    region = "ap-northeast-1"
+  }
+
+}
+
 # providerの設定
 provider "aws" {
     region = "ap-northeast-1"
 }
 
-# common moduleを呼び出す
-module "common" {
-  source = "../common"
-
-  # moduleに渡す変数を列挙
-  prefix = "sta"
-  ip_subnet = "10.0.0.0/16"
+module "dev" {
+  source              = "../common"
+  env                 = var.env
+  vpc_cidr            = var.vpc_cidr
 }
