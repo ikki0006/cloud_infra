@@ -3,9 +3,8 @@ terraform {
 
     backend "s3" {
     bucket = "harada-terraform-bucket"
-    key    = "terraform.tfvars"
     region = "ap-northeast-1"
-    prefix = var.env
+    key = "production.tfstate"
   }
 
 }
@@ -15,7 +14,7 @@ provider "aws" {
     region = "ap-northeast-1"
 }
 
-module "pro" {
+module "prod" {
   source = "../../"
   env = var.env
   vpc-cidr = var.vpc-cidr
